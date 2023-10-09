@@ -48,3 +48,13 @@ h1 {
     height: 200px;
     width: 200px;
 }
+
+.imgcover {
+    object-fit: cover;
+    border-radius: 100px 100px 100px 100px;
+}
+
+article h2, h3, p {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
