@@ -1,32 +1,26 @@
-let obj;
-let photographers;
+
 
     async function getPhotographers() {
         // On récupère les données JSON à l'aide de fetch
+        let data;
         try {
-        const response = await fetch('../Front-End-Fisheye/data/photographers.json');
+        const response = await fetch('../data/photographers.json');
         if (!response.ok) {
             throw new Error('Erreur HTTP ' + response.status);
         }
-        const data = await response.json();
-  
-        // On stock le fichier JSON dans un objet "obj", puis l'objet photographers présent dans obj dans une variable photographers 
-        obj = data;
-        photographers = obj.photographers;
+        data = await response.json();
       
-        console.log(photographers);
         } catch (error) {
         console.error('Erreur :', error);
         }
 
         // On retourne photographers sous forme de tableau contenant les informations des photographeurs.  
         return ({
-            photographers: [...photographers]})
+            photographers: [...data.photographers]})
 
     }
   
   // On doit appeller la fonction getPhotographers pour récupérer les photographes
-  getPhotographers();
 
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");

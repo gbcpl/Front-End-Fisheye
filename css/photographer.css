@@ -1,11 +1,63 @@
+
 #contact_modal {
     display: none;
 }
 
 .photograph-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    align-items: center;
+}
+
+.photograph-picture {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px 100px 100px 100px;
+    margin-right: 150px;
+}
+
+.photograph-presentation {
+    margin-left: 50px;
+}
+
+.photograph-presentation h1 {
+    color: rgba(211, 87, 60, 1);
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 83.33px;
+    margin: 0px;
+}
+
+.photograph-presentation h3 {
+    font-size: 24px;
+    color: rgba(144, 28, 28, 1);
+}
+
+.photograph-presentation p {
+    margin-top: 20px;
+    color: rgba(82, 82, 82, 1);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.filter {
+    margin-left: 100px;
+}
+
+.filter-title {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.photo {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
 }
 
 .contact_button {
