@@ -7,7 +7,7 @@ async function getPhotographers() {
     // JSON datas are recovered thanks to the fetch method
     
     try {
-    const response = await fetch('/data/photographers.json');
+    const response = await fetch('data/photographers.json');
     if (!response.ok) {
         throw new Error('Erreur HTTP ' + response.status);
     }
