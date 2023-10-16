@@ -1,7 +1,5 @@
-
-
     async function getPhotographers() {
-        // On récupère les données JSON à l'aide de fetch
+        // JSON datas are recovered thanks to the fetch method
         let data;
         try {
         const response = await fetch('../data/photographers.json');
@@ -14,13 +12,12 @@
         console.error('Erreur :', error);
         }
 
-        // On retourne photographers sous forme de tableau contenant les informations des photographeurs.  
         return ({
             photographers: [...data.photographers]})
 
     }
   
-  // On doit appeller la fonction getPhotographers pour récupérer les photographes
+  // Datas are integrated in the index.html page in the .photographer_section div
 
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
@@ -33,7 +30,8 @@
     }
 
     async function init() {
-        // Récupère les datas des photographes
+        // Datas are saved in photographers and displayed thanks to the called displayData function
+
         const { photographers } = await getPhotographers();
         displayData(photographers);
     }

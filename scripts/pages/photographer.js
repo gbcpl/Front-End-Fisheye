@@ -3,11 +3,11 @@ let data;
 let params = new URL(document.location).searchParams;
 let idPhotographer = parseInt(params.get("id"));
 
-
 async function getPhotographers() {
-    // On récupère les données JSON à l'aide de fetch
+    // JSON datas are recovered thanks to the fetch method
+    
     try {
-    const response = await fetch('../data/photographers.json');
+    const response = await fetch('/data/photographers.json');
     if (!response.ok) {
         throw new Error('Erreur HTTP ' + response.status);
     }
@@ -17,7 +17,6 @@ async function getPhotographers() {
     console.error('Erreur :', error);
     }
 
-    // On retourne photographers sous forme de tableau contenant les informations des photographeurs.  
     return ({
         photographers: [...data.photographers]})
 
