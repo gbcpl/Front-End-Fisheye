@@ -1,6 +1,17 @@
+main {
+    margin: 0 100px;
+}
 
 #contact_modal {
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
+    overflow: auto; 
 }
 
 .photograph-header {
@@ -9,7 +20,6 @@
     justify-content: space-between;
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
     align-items: center;
 }
 
@@ -45,19 +55,23 @@
     font-weight: 400;
 }
 
-.filter {
-    margin-left: 100px;
-}
-
 .filter-title {
     font-weight: 700;
     font-size: 16px;
 }
 
-.photo {
+.list-photos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.photo, .video {
     width: 350px;
     height: 350px;
     object-fit: cover;
+    margin-bottom: 100px;
 }
 
 .contact_button {
@@ -79,10 +93,9 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
     padding: 35px;
-    margin: auto;
+    margin: 69px auto;
 }
 
 .modal header {
@@ -98,6 +111,13 @@
     font-size: 64px;
     font-weight: normal;
     text-align: center;
+}
+
+#name-photographer {
+    font-size: 64px;
+    font-weight: normal;
+    text-align: left;
+    margin-top: 0;
 }
 
 form {
@@ -123,6 +143,13 @@ form div {
 form input {
     width: 100%;
     height: 68px;
+    border: none;
+    border-radius: 5px;
+}
+
+form textarea {
+    width: 100%;
+    height: 170px;
     border: none;
     border-radius: 5px;
 }

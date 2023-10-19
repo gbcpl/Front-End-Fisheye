@@ -21,25 +21,6 @@ async function getPhotographers() {
 
 } 
 
-async function getPhotos() {
-    await getPhotographers();
-
-    for (let i = 0; i < data.media.length; i++) {
-        if (data.media[i].photographerId === idPhotographer) {
-            console.log(data.media[i].id);
-            const photo = `assets/photos/${data.media[i].image}`;
-            const listOfPhotos = document.querySelector(".list-photos");
-            const img = document.createElement('img');
-            img.setAttribute("class", "photo");
-            img.setAttribute("src", photo)
-            listOfPhotos.appendChild(img);
-        }
-    }
-}
-
-getPhotos();
-
-
 async function displayData(photographers) {
 
     const photographerModel = photographerTemplate(photographers);
@@ -52,6 +33,7 @@ async function init() {
 
     const { photographers } = await getPhotographers();
     displayData(photographers);
+    getPhotos();
 }
 
 init();

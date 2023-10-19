@@ -1,6 +1,6 @@
 
 function photographerTemplate(data) {
-    const { name, id, city, country, tagline, price, portrait } = data;
+    const { name, id, city, country, tagline, price, portrait, title } = data;
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
@@ -11,6 +11,7 @@ function photographerTemplate(data) {
         const img = document.createElement( 'img' );
         img.setAttribute("class", "imgcover");
         img.setAttribute("src", picture);
+        img.setAttribute("alt", `Photo de profil de ${name}`);
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         const h3 = document.createElement( 'h3' );
@@ -30,7 +31,7 @@ function photographerTemplate(data) {
         return (article);
     }
 
-    async function getId() {
+    function getId() {
         console.log("salut")
         console.log(data);
         const findId = data.find((e) => e.id === idPhotographer)
@@ -40,7 +41,8 @@ function photographerTemplate(data) {
         const photographersPicture = document.querySelector(".photograph-img");
         const img = document.createElement( 'img' );
         img.setAttribute("class", "photograph-picture");
-        img.setAttribute("src", picture);    
+        img.setAttribute("src", picture);
+        img.setAttribute("alt", `Photo de profil de ${name}`);    
         const h1 = document.createElement('h1');
         h1.textContent = findId.name;
         const h3 = document.createElement( 'h3' );
