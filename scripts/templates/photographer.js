@@ -52,7 +52,11 @@ function photographerTemplate(data) {
         photographersHeader.appendChild(h1);
         photographersHeader.appendChild(h3);
         photographersHeader.appendChild(taglinePhotographer);
-        photographersPicture.appendChild(img)           
+        photographersPicture.appendChild(img);
+
+        const priceOfPhotographer = document.getElementById("price-photograph");
+        priceOfPhotographer.textContent = findId.price + "€ / jour";
+               
     }    
     return { getUserCardDOM, getId }
 
