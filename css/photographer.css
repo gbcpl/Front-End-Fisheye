@@ -72,6 +72,7 @@ main {
     height: 350px;
     object-fit: cover;
     margin-bottom: 100px;
+    cursor: pointer;
 }
 
 .contact_button {
@@ -162,7 +163,7 @@ form textarea {
     align-items: center;
     border-radius: 5px;
     width: 376px;
-    height: 89px;
+    height: 60px;
     background-color: rgba(219, 136, 118, 1);
     right: 200px;
     bottom: 0;
@@ -173,3 +174,29 @@ form textarea {
 #daily-rate p {
     font-weight: 500;
 }
+
+#light-box {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
+    overflow: auto; 
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.medias {
+    display: none;
+    width: 50%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover;
+}
+

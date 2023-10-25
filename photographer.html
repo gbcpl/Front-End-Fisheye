@@ -16,9 +16,9 @@
         <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/>
       </a>
     </header>
-    <main id="main">
+    <main id="main" aria-hidden="false">
       <div class="photograph-header">
-        <div class="photograph-presentation"></div>
+        <div class="photograph-presentation" aria-label="Présentation du photographe"></div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
         <div class="photograph-img"></div>
       </div>
@@ -27,11 +27,11 @@
         <div class="list-photos"></div>
       </div>
     </main>
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog" aria-hidden="true" aria-describedby="contact_modal">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer" />
+          <img id="close" src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer" aria-label="Fermer" tabindex="0"/>
         </header>
         <h2 id="name-photographer"></h2>
 				<form id="form" aria-label="Envoyer un message">
@@ -45,11 +45,14 @@
             <label for="message">Votre message</label>
 						<textarea id="message" rows="5" name="message"></textarea>
 					</div>
-          <button class="contact_button" type="submit">Envoyer</button>
+          <button class="contact_button" type="submit" aria-label="Envoyer">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <div id="daily-rate">
+    <div id="light-box">
+      <img id="close-lightbox" src="assets/icons/close.svg" onclick="closeLightBox()" alt="Fermer" aria-label="Fermer" tabindex="0"/>
+    </div>
+    <div id="daily-rate" aria-hidden="false">
         <p>297 081 <i class="fa-solid fa-heart"></i></p>
         <p id="price-photograph"></p>
     </div>
@@ -57,5 +60,6 @@
     <script src="scripts/templates/media.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/lightbox.js"></script>
   </body>
 </html>

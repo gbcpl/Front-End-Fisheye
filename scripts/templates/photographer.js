@@ -30,7 +30,7 @@ function photographerTemplate(data) {
         article.appendChild(pricePhotographer);
         return (article);
     }
-
+    // renommer getId
     function getId() {
         console.log("salut")
         console.log(data);

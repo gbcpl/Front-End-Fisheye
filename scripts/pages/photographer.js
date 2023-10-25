@@ -1,6 +1,10 @@
 let data;
 let params = new URL(document.location).searchParams;
 let idPhotographer = parseInt(params.get("id"));
+let arrayMedia = [];
+let newArrayLikes = [];
+let newArrayDate = [];
+let f = 0;
 
 async function getPhotographers() {
     // JSON datas are recovered thanks to the fetch method
@@ -28,12 +32,38 @@ async function displayData(photographers) {
     return presentation;
 }
 
+function displayPhotos(data, idPhotographer) {
+    const listOfPhotos = document.querySelector(".list-photos");
+    const mediaList = document.getElementById("light-box");
+
+    const indexMedia= data.media.filter((media) => media.photographerId === idPhotographer);
+
+    indexMedia.forEach((media, i) => {
+        
+        if (media.photographerId === idPhotographer) {
+            arrayMedia.push(media);
+            console.log(arrayMedia);
+
+            const date = new Date(media.date);
+            media.date = date;
+            console.log(i)
+            const mediaObject = MediaFactory.createMedia(media);
+
+            mediaObject.render(listOfPhotos, i + 1);
+            mediaObject.render(mediaList);
+        }
+    });
+}
+
+
+
 async function init() {
     // Datas are saved in photographers and displayed thanks to the called displayData function
 
     const { photographers } = await getPhotographers();
     displayData(photographers);
-    getPhotos();
+    displayPhotos(data, idPhotographer)
 }
 
 init();
+
