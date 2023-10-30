@@ -19,17 +19,16 @@ class ImageMedia {
         const img = document.createElement('img');
         img.setAttribute("src", photo);
         img.setAttribute("alt", this.data.title);
-
-        img.addEventListener("click", () => {
-            openLightBox();
-            currentSlide(index);
-        });
+        img.setAttribute("role", "link");
 
         if (listOfPhotos === document.getElementById("light-box")) {
             img.classList.add("medias");
         } else if (listOfPhotos === document.querySelector(".list-photos")) {
             img.classList.add("photo");
-
+            img.addEventListener("click", () => {
+                openLightBox();
+                currentSlide(index);
+            });
         }
 
         listOfPhotos.appendChild(img);
@@ -48,35 +47,40 @@ class VideoMedia {
         video.setAttribute("src", videoUrl);
         video.setAttribute("aria-label", this.data.title);
 
-        video.addEventListener("click", () => {
-            openLightBox();
-            currentSlide(index + 1);
-        });
-
         if (listOfPhotos === document.getElementById("light-box")) {
             video.classList.add("medias");
+            video.controls = true;
+        } else if (listOfPhotos === document.querySelector(".list-photos")) {
+            video.classList.add("photo");
+            video.addEventListener("click", () => {
+                openLightBox();
+                currentSlide(index);
+            });
         }
 
-        video.controls = true;
         listOfPhotos.appendChild(video);
     }
 }
 
 function sortMediaByLikes() {
     const listOfPhotos = document.querySelector(".list-photos");
+    const mediaList = document.getElementById("light-box");
 
     listOfPhotos.innerHTML = "";
+    mediaList.innerHTML = "";
     
-    // mettre dans photographer.js, rappeler classes medias dans le if
+    // mettre dans photographer.js
     newArrayLikes = arrayMedia.sort((a, b) => a.likes - b.likes);
 
-    newArrayLikes.forEach((media) => {
+    newArrayLikes.forEach((media, index) => {
 
         if (media.photographerId === idPhotographer) {
             const mediaObject = MediaFactory.createMedia(media);
 
             console.log(media);
-            mediaObject.render(listOfPhotos);
+            mediaObject.render(listOfPhotos, index + 1);
+            console.log(index);
+            mediaObject.render(mediaList);
         }
     })
 

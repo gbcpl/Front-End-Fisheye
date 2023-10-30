@@ -49,8 +49,14 @@
 				</form>
 			</div>
 		</div>
-    <div id="light-box">
-      <img id="close-lightbox" src="assets/icons/close.svg" onclick="closeLightBox()" alt="Fermer" aria-label="Fermer" tabindex="0"/>
+    <div id="modal-light-box">
+      <img id="close-lightbox" src="assets/icons/close.svg" onclick="closeLightBox()" alt="Fermer" aria-label="Fermer" tabindex="0" role="button" />
+      <div id="light-box-container">
+        <i class="fa-solid fa-chevron-left fa-2xl" role="link"></i>
+        <div id="light-box"></div>
+        <i class="fa-solid fa-chevron-right fa-2xl" role="link"></i>
+      </div>
+      </div>
     </div>
     <div id="daily-rate" aria-hidden="false">
         <p>297 081 <i class="fa-solid fa-heart"></i></p>

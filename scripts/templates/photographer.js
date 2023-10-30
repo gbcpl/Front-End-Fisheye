@@ -30,10 +30,8 @@ function photographerTemplate(data) {
         article.appendChild(pricePhotographer);
         return (article);
     }
-    // renommer getId
-    function getId() {
-        console.log("salut")
-        console.log(data);
+
+    function getInfosOfPhotographer() {
         const findId = data.find((e) => e.id === idPhotographer)
     
         const picture = `assets/photographers/${findId.portrait}`;
@@ -58,6 +56,6 @@ function photographerTemplate(data) {
         priceOfPhotographer.textContent = findId.price + "€ / jour";
                
     }    
-    return { getUserCardDOM, getId }
+    return { getUserCardDOM, getInfosOfPhotographer }
 
 }

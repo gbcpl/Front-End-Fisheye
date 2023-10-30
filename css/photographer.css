@@ -175,15 +175,11 @@ form textarea {
     font-weight: 500;
 }
 
-#light-box {
+#modal-light-box {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-
-    background-color: rgba(0, 0, 0, 0.5); 
     z-index: 1; 
     overflow: auto; 
     margin-left: auto;
@@ -193,10 +189,21 @@ form textarea {
 
 .medias {
     display: none;
-    width: 50%;
-    height: 80%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     object-fit: cover;
+}
+
+#light-box-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.fa-chevron-left, .fa-chevron-right {
+    cursor: pointer;
 }
 

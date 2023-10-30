@@ -28,7 +28,7 @@ async function getPhotographers() {
 async function displayData(photographers) {
 
     const photographerModel = photographerTemplate(photographers);
-    const presentation = photographerModel.getId();
+    const presentation = photographerModel.getInfosOfPhotographer();
     return presentation;
 }
 
@@ -36,20 +36,19 @@ function displayPhotos(data, idPhotographer) {
     const listOfPhotos = document.querySelector(".list-photos");
     const mediaList = document.getElementById("light-box");
 
-    const indexMedia= data.media.filter((media) => media.photographerId === idPhotographer);
+    const indexMedia = data.media.filter((media) => media.photographerId === idPhotographer);
 
-    indexMedia.forEach((media, i) => {
-        
+    indexMedia.forEach((media, index) => {
         if (media.photographerId === idPhotographer) {
             arrayMedia.push(media);
             console.log(arrayMedia);
 
             const date = new Date(media.date);
             media.date = date;
-            console.log(i)
             const mediaObject = MediaFactory.createMedia(media);
 
-            mediaObject.render(listOfPhotos, i + 1);
+            mediaObject.render(listOfPhotos, index + 1);
+            console.log(index);
             mediaObject.render(mediaList);
         }
     });

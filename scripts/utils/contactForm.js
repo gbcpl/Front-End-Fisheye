@@ -53,7 +53,6 @@ form.addEventListener("submit", (e) => {
   const email = document.getElementById("mail").value;
   const message = document.getElementById("message").value;
 
-  // faire un objet avec 1 seul console log
   console.log("Prénom : " + firstName);
   console.log("Nom : " + lastName);
   console.log("Email : " + email);
