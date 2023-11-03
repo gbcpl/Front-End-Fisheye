@@ -3,7 +3,6 @@ function openLightBox() {
     document.getElementById("main").style.display = "none";
     document.querySelector(".logo").style.display = "none";
     document.getElementById("daily-rate").style.display = "none";
-
 }
 
 function closeLightBox() {
@@ -12,7 +11,7 @@ function closeLightBox() {
     document.querySelector(".logo").style.display = "block";
     document.getElementById("daily-rate").style.display = "block";
 
-    const images = document.querySelectorAll(".medias"); 
+    const images = document.querySelectorAll(".media-container-lightbox"); 
     images.forEach((image) => {
         image.style.display = "none"; 
     });;
@@ -20,29 +19,23 @@ function closeLightBox() {
 }
 
 function currentSlide(current) {
-    const images = document.querySelectorAll(".medias"); 
+    const images = document.querySelectorAll(".media-container-lightbox"); 
     console.log(current)
 
-    for (let i = 0; i < images.length; i++) {
-        if (i === current) {
-            images[i - 1].style.display = "block";
+    images.forEach((image, index) => {
+        if (index === current - 1) {
+            image.style.display = "flex";
         } else {
-            images[i].style.display = "none";
+            image.style.display = "none";
         }
-    }
+    });
 }
 
 function nextSlide() {
-    const images = document.querySelectorAll(".medias"); 
+    const images = document.querySelectorAll(".media-container-lightbox"); 
 
-    // Find the currently displayed image
-    let currentIndex = 0;
-    for (let i = 1; i < images.length; i++) {
-        if (images[i].style.display === "block") {
-            currentIndex = i;
-            break;
-        }
-    }
+    const imagesArray = Array.from(images);
+    let currentIndex = imagesArray.findIndex(image => image.style.display === "flex");
 
     if (currentIndex !== -1) {
         // hide currently displayed image
@@ -53,20 +46,16 @@ function nextSlide() {
         const nextIndex = (currentIndex + 1) % images.length;
 
         // next image
-        images[nextIndex].style.display = "block";
+        images[nextIndex].style.display = "flex";
     }
 }
 
 function previousSlide() {
-    const images = document.querySelectorAll(".medias"); 
+    const images = document.querySelectorAll(".media-container-lightbox"); 
 
-    let currentIndex = 0;
-    for (let i = 1; i < images.length; i++) {
-        if (images[i].style.display === "block") {
-            currentIndex = i;
-            break;
-        }
-    }
+    const imagesArray = Array.from(images);
+    let currentIndex = imagesArray.findIndex(image => image.style.display === "flex");
+
 
     if (currentIndex !== -1) {
         console.log(currentIndex)
@@ -78,9 +67,20 @@ function previousSlide() {
         const previousIndex = (currentIndex - 1 + images.length) % images.length;
 
         // previous image
-        images[previousIndex].style.display = "block";
+        images[previousIndex].style.display = "flex";
     }
 }
+
+document.addEventListener("keydown", function (e) {
+    if (e.key === 'ArrowRight') {
+        nextSlide();
+    } else if (e.key === 'ArrowLeft') {
+        previousSlide();
+    } else if (e.key === 'Escape') {
+        closeLightBox();
+    }
+});
+
 
 const next = document.querySelector(".fa-chevron-right");
 

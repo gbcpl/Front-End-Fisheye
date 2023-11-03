@@ -24,6 +24,11 @@
       </div>
       <div class="filter">
         <p class="filter-title">Trier par</p>
+        <select id="select-menu">
+          <option id="likes" value="likes">Popularité</option>
+          <option id="date" value="date">Date</option>
+          <option id="title" value="title">Titre</option>
+        </select>
         <div class="list-photos"></div>
       </div>
     </main>
@@ -36,26 +41,35 @@
         <h2 id="name-photographer"></h2>
 				<form id="form" aria-label="Envoyer un message">
 					<div>
-						<label for="firstname">Prénom</label>
-						<input id="firstname" name="firstname" type="text" />
-            <label for="lastname">Nom</label>
-						<input id="lastname" name="lastname" type="text" />
-            <label for="mail">Email</label>
-						<input id="mail" name="mail" type="email"/>
-            <label for="message">Votre message</label>
-						<textarea id="message" rows="5" name="message"></textarea>
+            <div id="formFirstName">
+						  <label for="firstname">Prénom</label>
+						  <input id="firstname" name="firstname" type="text" />
+            </div>
+            <div id="formLastName">
+              <label for="lastname">Nom</label>
+						  <input id="lastname" name="lastname" type="text" />
+            </div>
+            <div id="formMail">  
+              <label for="mail">Email</label>
+						  <input id="mail" name="mail" type="email"/>
+            </div>
+            <div id="formMessage">
+              <label for="message">Votre message</label>
+						  <textarea id="message" rows="5" name="message"></textarea>
+            </div>  
 					</div>
           <button class="contact_button" type="submit" aria-label="Envoyer">Envoyer</button>
 				</form>
 			</div>
 		</div>
     <div id="modal-light-box">
-      <img id="close-lightbox" src="assets/icons/close.svg" onclick="closeLightBox()" alt="Fermer" aria-label="Fermer" tabindex="0" role="button" />
       <div id="light-box-container">
+        <div id="close-lightbox-container">
+          <img id="close-lightbox" src="assets/icons/close.svg" onclick="closeLightBox()" alt="Fermer" aria-label="Fermer" tabindex="0" role="button" />
+        </div>
         <i class="fa-solid fa-chevron-left fa-2xl" role="link"></i>
         <div id="light-box"></div>
         <i class="fa-solid fa-chevron-right fa-2xl" role="link"></i>
-      </div>
       </div>
     </div>
     <div id="daily-rate" aria-hidden="false">
@@ -67,5 +81,6 @@
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/utils/lightbox.js"></script>
+    <script src="scripts/utils/filters.js"></script>
   </body>
 </html>

@@ -71,7 +71,6 @@ main {
     width: 350px;
     height: 350px;
     object-fit: cover;
-    margin-bottom: 100px;
     cursor: pointer;
 }
 
@@ -155,6 +154,10 @@ form textarea {
     border-radius: 5px;
 }
 
+.error {
+    color: red;
+}
+
 #daily-rate {
     display: flex;
     flex-direction: row;
@@ -179,31 +182,62 @@ form textarea {
     display: none;
     position: fixed;
     top: 0;
-    left: 0;
     z-index: 1; 
+    height: 100vh;
     overflow: auto; 
     margin-left: auto;
     margin-right: auto;
-
+    width: 75%;
+    flex-direction: row;
 }
 
 .medias {
-    display: none;
-    width: 60%;
+    height: 80%;
     margin-left: auto;
     margin-right: auto;
     object-fit: cover;
+    margin-top: 100px;
 }
 
 #light-box-container {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
     align-items: center;
-    margin-left: 200px;
-    margin-right: 200px;
+    height: 100%;
 }
 
 .fa-chevron-left, .fa-chevron-right {
     cursor: pointer;
 }
 
+#light-box {
+    height: 100%;
+}
+
+#close-lightbox {
+    position: absolute;
+    top: 110px;
+    right: 50px;
+    cursor: pointer;
+}
+
+.media-container-lightbox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.media-container {
+    margin-bottom: 100px;
+}

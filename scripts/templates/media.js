@@ -16,22 +16,42 @@ class ImageMedia {
 
     render(listOfPhotos, index) {
         const photo = `assets/photos/${this.data.image}`;
+        const div = document.createElement('div');
         const img = document.createElement('img');
+        const title = document.createElement('p');
+        const likes = document.createElement('p');
+
         img.setAttribute("src", photo);
         img.setAttribute("alt", this.data.title);
-        img.setAttribute("role", "link");
+        img.setAttribute("role", "button");
+
+        title.textContent = this.data.title;
+
+        // likes.textContent = this.data.likes;
+        likes.innerHTML = this.data.likes + ' <i class="fa-solid fa-heart"></i>';
 
         if (listOfPhotos === document.getElementById("light-box")) {
             img.classList.add("medias");
+            div.setAttribute("class", "media-container-lightbox")
+            div.appendChild(img);
+            div.appendChild(title);    
+            
         } else if (listOfPhotos === document.querySelector(".list-photos")) {
             img.classList.add("photo");
+            div.setAttribute("class", "media-container");
+            const description = document.createElement('div');
+            description.appendChild(title);
+            description.appendChild(likes); 
+            description.classList.add("description");
+            div.appendChild(img);
+            div.appendChild(description);
             img.addEventListener("click", () => {
                 openLightBox();
                 currentSlide(index);
             });
         }
 
-        listOfPhotos.appendChild(img);
+        listOfPhotos.appendChild(div);
     }
 }
 
@@ -42,64 +62,39 @@ class VideoMedia {
 
     render(listOfPhotos, index) {
         const videoUrl = `assets/photos/${this.data.video}`;
+        const div = document.createElement('div');
         const video = document.createElement('video');
-        video.setAttribute("class", "video");
+        const title = document.createElement('p');
+        const likes = document.createElement('p');
+
         video.setAttribute("src", videoUrl);
         video.setAttribute("aria-label", this.data.title);
+        title.textContent = this.data.title;
+
+        likes.innerHTML = this.data.likes + ' <i class="fa-solid fa-heart"></i>';
 
         if (listOfPhotos === document.getElementById("light-box")) {
             video.classList.add("medias");
+            div.setAttribute("class", "media-container-lightbox");
             video.controls = true;
+            div.appendChild(video);
+            div.appendChild(title);    
+
         } else if (listOfPhotos === document.querySelector(".list-photos")) {
-            video.classList.add("photo");
+            video.classList.add("video");
+            div.setAttribute("class", "media-container")
+            const description = document.createElement('div');
+            description.appendChild(title);
+            description.appendChild(likes); 
+            description.classList.add("description");
+            div.appendChild(video);
+            div.appendChild(description);
             video.addEventListener("click", () => {
                 openLightBox();
                 currentSlide(index);
             });
         }
 
-        listOfPhotos.appendChild(video);
+        listOfPhotos.appendChild(div);
     }
-}
-
-function sortMediaByLikes() {
-    const listOfPhotos = document.querySelector(".list-photos");
-    const mediaList = document.getElementById("light-box");
-
-    listOfPhotos.innerHTML = "";
-    mediaList.innerHTML = "";
-    
-    // mettre dans photographer.js
-    newArrayLikes = arrayMedia.sort((a, b) => a.likes - b.likes);
-
-    newArrayLikes.forEach((media, index) => {
-
-        if (media.photographerId === idPhotographer) {
-            const mediaObject = MediaFactory.createMedia(media);
-
-            console.log(media);
-            mediaObject.render(listOfPhotos, index + 1);
-            console.log(index);
-            mediaObject.render(mediaList);
-        }
-    })
-
-}
-
-function sortMediaByDate() {
-    const listOfPhotos = document.querySelector(".list-photos");
-
-    listOfPhotos.innerHTML = "";
-    
-    newArrayDate = arrayMedia.sort((a, b) => a.date.getTime() - b.date.getTime());
-
-    newArrayDate.forEach((media) => {
-
-        if (media.photographerId === idPhotographer) {
-            console.log("ici")
-            const mediaObject = MediaFactory.createMedia(media);
-            mediaObject.render(listOfPhotos);
-        }
-    })
-
 }
