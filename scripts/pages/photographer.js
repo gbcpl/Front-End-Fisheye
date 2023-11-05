@@ -52,6 +52,8 @@ function displayPhotos(data, idPhotographer) {
             mediaObject.render(mediaList);
         }
     });
+    incrementLikes();
+    getTotalLikes();
 }
 
 

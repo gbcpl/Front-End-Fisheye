@@ -28,7 +28,7 @@ class ImageMedia {
         title.textContent = this.data.title;
 
         // likes.textContent = this.data.likes;
-        likes.innerHTML = this.data.likes + ' <i class="fa-solid fa-heart"></i>';
+        likes.innerHTML = `<span class="hearts">${this.data.likes}</span>` + ' <i class="fa-solid fa-heart"></i>';
 
         if (listOfPhotos === document.getElementById("light-box")) {
             img.classList.add("medias");
@@ -71,7 +71,7 @@ class VideoMedia {
         video.setAttribute("aria-label", this.data.title);
         title.textContent = this.data.title;
 
-        likes.innerHTML = this.data.likes + ' <i class="fa-solid fa-heart"></i>';
+        likes.innerHTML = `<span class="hearts">${this.data.likes}</span>` + ' <i class="fa-solid fa-heart"></i>';
 
         if (listOfPhotos === document.getElementById("light-box")) {
             video.classList.add("medias");

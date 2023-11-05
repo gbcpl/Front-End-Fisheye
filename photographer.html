@@ -23,12 +23,14 @@
         <div class="photograph-img"></div>
       </div>
       <div class="filter">
-        <p class="filter-title">Trier par</p>
-        <select id="select-menu">
-          <option id="likes" value="likes">Popularité</option>
-          <option id="date" value="date">Date</option>
-          <option id="title" value="title">Titre</option>
-        </select>
+        <div id="sort">
+          <p class="filter-title">Trier par</p>
+          <select id="select-menu">
+            <option id="likes" value="likes">Popularité</option>
+            <option id="date" value="date">Date</option>
+            <option id="title" value="title">Titre</option>
+          </select>
+        </div>
         <div class="list-photos"></div>
       </div>
     </main>
@@ -73,7 +75,7 @@
       </div>
     </div>
     <div id="daily-rate" aria-hidden="false">
-        <p>297 081 <i class="fa-solid fa-heart"></i></p>
+        <p id="total-likes"></p>
         <p id="price-photograph"></p>
     </div>
     <script src="scripts/templates/photographer.js"></script>
@@ -82,5 +84,6 @@
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/utils/lightbox.js"></script>
     <script src="scripts/utils/filters.js"></script>
+    <script src="scripts/utils/likes.js"></script>
   </body>
 </html>

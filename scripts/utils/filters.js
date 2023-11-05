@@ -17,7 +17,7 @@ function sortMediaByLikes() {
 
     listOfPhotos.innerHTML = "";
     mediaList.innerHTML = "";
-    console.log("yooo")
+
     // mettre dans photographer.js
     newArrayLikes = arrayMedia.sort((a, b) => b.likes - a.likes);
 
@@ -30,7 +30,7 @@ function sortMediaByLikes() {
             mediaObject.render(mediaList);
         }
     })
-
+    incrementLikes()
 }
 
 function sortMediaByDate() {
@@ -50,6 +50,7 @@ function sortMediaByDate() {
             mediaObject.render(mediaList);
         }
     })
+    incrementLikes()
 
 }
 
@@ -72,5 +73,6 @@ function sortMediaByTitle() {
             mediaObject.render(mediaList);
         }
     })
+    incrementLikes()
 
 }

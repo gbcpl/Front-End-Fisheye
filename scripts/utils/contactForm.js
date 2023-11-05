@@ -100,7 +100,7 @@ function isLastNameValid() {
       formLastName.appendChild(paragraphLast);
     }
 
-    paragraphLast.textContent = "Veuillez entrer un nom de famille."
+    paragraphLast.textContent = "Veuillez entrer un nom de famille de 2 caractères ou plus."
   } else {
 
     if (paragraphLast) {

@@ -214,6 +214,8 @@ form textarea {
 
 #light-box {
     height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 #close-lightbox {
@@ -240,4 +242,13 @@ form textarea {
 
 .media-container {
     margin-bottom: 100px;
+}
+
+#sort {
+    display: flex;
+    flex-direction: row;
+}
+
+.fa-heart {
+    cursor: pointer;
 }
