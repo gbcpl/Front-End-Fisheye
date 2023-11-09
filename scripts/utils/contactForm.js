@@ -155,7 +155,7 @@ function isMessageValid() {
         formMessage.appendChild(paragraphMessage);
     }
 
-    paragraphMessage.textContent = "Veuillez entrer au minimum 100 caractères et au maximum 1000 caractères."
+    paragraphMessage.textContent = "Veuillez entrer entre 100 caractères et 1000 caractères."
   } else {
 
     if (paragraphMessage) {
@@ -175,6 +175,7 @@ form.addEventListener("submit", (e) => {
     console.log("Nom : " + lastName.value);
     console.log("Email : " + email.value);
     console.log("Message : " + message.value);
+    form.reset();
     closeModal();
 
   } else {

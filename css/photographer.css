@@ -218,11 +218,18 @@ form textarea {
     margin-right: 10px;
 }
 
+#right-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 #close-lightbox {
     position: absolute;
-    top: 110px;
-    right: 50px;
     cursor: pointer;
+    right: 0;
+    top: -350px;
 }
 
 .media-container-lightbox {
@@ -251,4 +258,9 @@ form textarea {
 
 .fa-heart {
     cursor: pointer;
+}
+
+#select-menu {
+    margin-left: 10px;
+    margin-bottom: 20px;
 }

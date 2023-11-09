@@ -1,8 +1,19 @@
+function keyboardEventListener(e) {
+    if (e.key === 'ArrowRight') {
+        nextSlide();
+    } else if (e.key === 'ArrowLeft') {
+        previousSlide();
+    } else if (e.key === 'Escape') {
+        closeLightBox();
+    }
+}
+
 function openLightBox() {
     document.getElementById("modal-light-box").style.display = "block";
     document.getElementById("main").style.display = "none";
     document.querySelector(".logo").style.display = "none";
     document.getElementById("daily-rate").style.display = "none";
+    document.addEventListener("keydown", keyboardEventListener);
 }
 
 function closeLightBox() {
@@ -15,7 +26,7 @@ function closeLightBox() {
     images.forEach((image) => {
         image.style.display = "none"; 
     });;
-
+    document.removeEventListener("keydown", keyboardEventListener)
 }
 
 function currentSlide(current) {
@@ -71,17 +82,6 @@ function previousSlide() {
     }
 }
 
-document.addEventListener("keydown", function (e) {
-    if (e.key === 'ArrowRight') {
-        nextSlide();
-    } else if (e.key === 'ArrowLeft') {
-        previousSlide();
-    } else if (e.key === 'Escape') {
-        closeLightBox();
-    }
-});
-
-
 const next = document.querySelector(".fa-chevron-right");
 
 next.addEventListener("click", () => {
@@ -92,6 +92,6 @@ next.addEventListener("click", () => {
 const previous = document.querySelector(".fa-chevron-left");
 
 previous.addEventListener("click", () => {
-    previousSlide();
+        previousSlide();
     }
 )

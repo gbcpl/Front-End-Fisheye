@@ -26,6 +26,7 @@
         <div id="sort">
           <p class="filter-title">Trier par</p>
           <select id="select-menu">
+            <option value="" disabled selected hidden>Choisissez une catégorie</option>
             <option id="likes" value="likes">Popularité</option>
             <option id="date" value="date">Date</option>
             <option id="title" value="title">Titre</option>
@@ -66,12 +67,12 @@
 		</div>
     <div id="modal-light-box">
       <div id="light-box-container">
-        <div id="close-lightbox-container">
-          <img id="close-lightbox" src="assets/icons/close.svg" onclick="closeLightBox()" alt="Fermer" aria-label="Fermer" tabindex="0" role="button" />
-        </div>
         <i class="fa-solid fa-chevron-left fa-2xl" role="link"></i>
         <div id="light-box"></div>
-        <i class="fa-solid fa-chevron-right fa-2xl" role="link"></i>
+        <div id="right-container">
+          <i class="fa-solid fa-chevron-right fa-2xl" role="link"> </i>
+          <img id="close-lightbox" src="assets/icons/close.svg" onclick="closeLightBox()" alt="Fermer" aria-label="Fermer" tabindex="0" role="button" />
+        </div>
       </div>
     </div>
     <div id="daily-rate" aria-hidden="false">

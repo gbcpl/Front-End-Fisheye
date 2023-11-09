@@ -52,8 +52,6 @@ function displayPhotos(data, idPhotographer) {
             mediaObject.render(mediaList);
         }
     });
-    incrementLikes();
-    getTotalLikes();
 }
 
 
@@ -63,7 +61,9 @@ async function init() {
 
     const { photographers } = await getPhotographers();
     displayData(photographers);
-    displayPhotos(data, idPhotographer)
+    displayPhotos(data, idPhotographer);
+    incrementLikes();
+    getTotalLikes();
 }
 
 init();

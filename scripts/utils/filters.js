@@ -23,14 +23,13 @@ function sortMediaByLikes() {
 
     newArrayLikes.forEach((media, index) => {
 
-        if (media.photographerId === idPhotographer) {
             const mediaObject = MediaFactory.createMedia(media);
 
             mediaObject.render(listOfPhotos, index + 1);
             mediaObject.render(mediaList);
-        }
+        
     })
-    incrementLikes()
+    incrementLikes();
 }
 
 function sortMediaByDate() {
@@ -40,17 +39,16 @@ function sortMediaByDate() {
     listOfPhotos.innerHTML = "";
     mediaList.innerHTML = "";
 
-    newArrayDate = arrayMedia.sort((a, b) => a.date.getTime() - b.date.getTime());
+    newArrayDate = arrayMedia.sort((a, b) => b.date.getTime() - a.date.getTime());
 
     newArrayDate.forEach((media, index) => {
 
-        if (media.photographerId === idPhotographer) {
-            const mediaObject = MediaFactory.createMedia(media);
-            mediaObject.render(listOfPhotos, index + 1);
-            mediaObject.render(mediaList);
-        }
+        const mediaObject = MediaFactory.createMedia(media);
+        mediaObject.render(listOfPhotos, index + 1);
+        mediaObject.render(mediaList);
+        
     })
-    incrementLikes()
+    incrementLikes();
 
 }
 
@@ -65,13 +63,11 @@ function sortMediaByTitle() {
 
     newArrayTitle.forEach((media, index) => {
 
-        if (media.photographerId === idPhotographer) {
-            console.log("title2")
 
             const mediaObject = MediaFactory.createMedia(media);
             mediaObject.render(listOfPhotos, index + 1);
             mediaObject.render(mediaList);
-        }
+        
     })
     incrementLikes()
 
