@@ -241,10 +241,25 @@ form textarea {
     margin-right: auto;
 }
 
+.media-container-lightbox p {
+    color: #901C1C;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
 .description {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    color: rgba(144, 28, 28, 1);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.description span {
+    font-weight: 500;
 }
 
 .media-container {
@@ -263,4 +278,5 @@ form textarea {
 #select-menu {
     margin-left: 10px;
     margin-bottom: 20px;
+    background-color: rgba(144, 28, 28, 1);
 }

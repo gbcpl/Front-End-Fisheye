@@ -1,3 +1,8 @@
+function onKeyUp(e) {
+    if (e.key === "Enter") {
+        openLightBox();
+    }
+}
 
 class MediaFactory {
     static createMedia(data) {
@@ -28,7 +33,7 @@ class ImageMedia {
         title.textContent = this.data.title;
 
         // likes.textContent = this.data.likes;
-        likes.innerHTML = `<span class="hearts">${this.data.likes}</span>` + ' <i class="fa-solid fa-heart"></i>';
+        likes.innerHTML = `<span class="hearts">${this.data.likes} </span>` + ' <i class="fa-solid fa-heart" aria-label="likes"></i>';
 
         if (listOfPhotos === document.getElementById("light-box")) {
             img.classList.add("medias");
@@ -38,6 +43,7 @@ class ImageMedia {
             
         } else if (listOfPhotos === document.querySelector(".list-photos")) {
             img.classList.add("photo");
+            img.setAttribute("tabindex", index + 2);
             div.setAttribute("class", "media-container");
             const description = document.createElement('div');
             description.appendChild(title);
@@ -49,6 +55,10 @@ class ImageMedia {
                 openLightBox();
                 currentSlide(index);
             });
+            img.addEventListener("keydown", () => {
+                onKeyUp(event);
+                currentSlide(index);
+            })
         }
 
         listOfPhotos.appendChild(div);
@@ -93,8 +103,13 @@ class VideoMedia {
                 openLightBox();
                 currentSlide(index);
             });
+            video.addEventListener("keydown", () => {
+                onKeyUp(event);
+                currentSlide(index);
+            })
         }
 
         listOfPhotos.appendChild(div);
     }
 }
+

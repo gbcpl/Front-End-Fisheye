@@ -13,16 +13,16 @@
   <body>
     <header>
       <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/>
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page" tabindex="1"/>
       </a>
     </header>
     <main id="main" aria-hidden="false">
       <div class="photograph-header">
         <div class="photograph-presentation" aria-label="Présentation du photographe"></div>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()" tabindex="2" aria-label="Contact me">Contactez-moi</button>
         <div class="photograph-img"></div>
       </div>
-      <div class="filter">
+      <div class="filter" aria-labelledby="Order by">
         <div id="sort">
           <p class="filter-title">Trier par</p>
           <select id="select-menu">

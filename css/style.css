@@ -46,11 +46,15 @@ h1 {
     color: #D3573C;
     font-size: 36px;
     font-weight: 400;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .photographer_section article h3 {
@@ -77,4 +81,10 @@ article h2, h3, p {
 .price {
     font-size: 9px;
     color: rgba(117, 117, 117, 1);
+}
+
+a {
+    display: flex;
+    text-decoration: none;
+    flex-direction: column;
 }
