@@ -92,6 +92,7 @@ class VideoMedia {
 
         } else if (listOfPhotos === document.querySelector(".list-photos")) {
             video.classList.add("video");
+            video.setAttribute("tabindex", index + 2);
             div.setAttribute("class", "media-container")
             const description = document.createElement('div');
             description.appendChild(title);
