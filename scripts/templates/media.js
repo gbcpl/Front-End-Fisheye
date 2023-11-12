@@ -43,7 +43,7 @@ class ImageMedia {
             
         } else if (listOfPhotos === document.querySelector(".list-photos")) {
             img.classList.add("photo");
-            img.setAttribute("tabindex", index + 2);
+            img.setAttribute("tabindex", index + 3);
             div.setAttribute("class", "media-container");
             const description = document.createElement('div');
             description.appendChild(title);
@@ -92,7 +92,7 @@ class VideoMedia {
 
         } else if (listOfPhotos === document.querySelector(".list-photos")) {
             video.classList.add("video");
-            video.setAttribute("tabindex", index + 2);
+            video.setAttribute("tabindex", index + 3);
             div.setAttribute("class", "media-container")
             const description = document.createElement('div');
             description.appendChild(title);
