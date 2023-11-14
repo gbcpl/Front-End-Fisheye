@@ -2,7 +2,7 @@ function displayModal() {
     const modal = document.getElementById("contact_modal");
     modal.setAttribute("aria-hidden", "false")
     modal.setAttribute("tabindex", "0")
-	  modal.style.display = "block";
+    modal.style.display = "block";
 
     const mainContent = document.getElementById("main");
     mainContent.setAttribute("aria-hidden", "true");
@@ -110,14 +110,14 @@ function isLastNameValid() {
 
     lastNameValid = 1;
   }
-};
+}
 
 email.addEventListener("change", isEmailValid);
 let emailValid = 0;
 
 function isEmailValid() {
   let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  if (mail.value.match(mailFormat)) {
+  if (email.value.match(mailFormat)) {
 
     if (paragraphMail) {
       paragraphMail.remove();
@@ -165,7 +165,7 @@ function isMessageValid() {
 
     messageValid = 1;
   }
-};
+}
 
 form.addEventListener("submit", (e) => {
   e.preventDefault(); 

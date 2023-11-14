@@ -68,7 +68,7 @@ function sortMediaByTitle() {
             mediaObject.render(listOfPhotos, index + 1);
             mediaObject.render(mediaList);
         
-    })
-    incrementLikes()
+    });
+    incrementLikes();
 
 }

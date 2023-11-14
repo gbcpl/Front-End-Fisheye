@@ -1,28 +1,50 @@
+// eslint-disable-next-line no-unused-vars
 function incrementLikes() {
     const addLikes = document.querySelectorAll(".fa-heart");
     
     addLikes.forEach((like, index) => {
-        let likeAdded = 0;
+        let likeAdded = false;
 
         like.addEventListener("click", () => {
             const hearts = document.querySelectorAll(".hearts");
             const currentLikes = parseInt(hearts[index].textContent);
             console.log(currentLikes);
 
-            if (likeAdded === 0) {
+            if (!likeAdded) {
                                 
                 hearts[index].textContent = currentLikes + 1;
-                likeAdded = 1;
+                likeAdded = true;
                 getTotalLikes();
 
-            } else if (likeAdded === 1) {
+            } else if (likeAdded) {
                 hearts[index].textContent = currentLikes - 1;
 
-                likeAdded = 0;
+                likeAdded = false;
                 getTotalLikes();
             }
-});
-});
+        });
+
+        like.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                const hearts = document.querySelectorAll(".hearts");
+                const currentLikes = parseInt(hearts[index].textContent);
+                console.log(currentLikes);
+
+                if (!likeAdded) {
+                                    
+                    hearts[index].textContent = currentLikes + 1;
+                    likeAdded = true;
+                    getTotalLikes();
+                
+                } else if (likeAdded) {
+                    hearts[index].textContent = currentLikes - 1;
+                
+                    likeAdded = false;
+                    getTotalLikes();
+            }
+            }
+        });
+    });
 }
 
 function getTotalLikes() {

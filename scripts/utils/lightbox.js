@@ -9,29 +9,32 @@ function keyboardEventListener(e) {
 }
 
 function openLightBox() {
-    document.getElementById("modal-light-box").style.display = "block";
+    let lightBox = document.getElementById("modal-light-box");
     document.getElementById("main").style.display = "none";
     document.querySelector(".logo").style.display = "none";
     document.getElementById("daily-rate").style.display = "none";
     document.addEventListener("keydown", keyboardEventListener);
+
+    lightBox.style.display = "block";
+    lightBox.focus();
 }
 
 function closeLightBox() {
     document.getElementById("modal-light-box").style.display = "none";
     document.getElementById("main").style.display = "block";
     document.querySelector(".logo").style.display = "block";
-    document.getElementById("daily-rate").style.display = "block";
+    document.getElementById("daily-rate").style.display = "flex";
 
     const images = document.querySelectorAll(".media-container-lightbox"); 
     images.forEach((image) => {
         image.style.display = "none"; 
-    });;
+    });
     document.removeEventListener("keydown", keyboardEventListener)
 }
 
 function currentSlide(current) {
     const images = document.querySelectorAll(".media-container-lightbox"); 
-    console.log(current)
+    console.log(current);
 
     images.forEach((image, index) => {
         if (index === current - 1) {

@@ -21,10 +21,10 @@ class ImageMedia {
 
     render(listOfPhotos, index) {
         const photo = `assets/photos/${this.data.image}`;
-        const div = document.createElement('div');
-        const img = document.createElement('img');
-        const title = document.createElement('p');
-        const likes = document.createElement('p');
+        const div = document.createElement("div");
+        const img = document.createElement("img");
+        const title = document.createElement("p");
+        const likes = document.createElement("p");
 
         img.setAttribute("src", photo);
         img.setAttribute("alt", this.data.title);
@@ -33,19 +33,19 @@ class ImageMedia {
         title.textContent = this.data.title;
 
         // likes.textContent = this.data.likes;
-        likes.innerHTML = `<span class="hearts">${this.data.likes} </span>` + ' <i class="fa-solid fa-heart" aria-label="likes"></i>';
+        likes.innerHTML = `<span class="hearts">${this.data.likes} </span>` + ' <i class="fa-solid fa-heart" aria-label="likes" tabindex="0"></i>';
 
         if (listOfPhotos === document.getElementById("light-box")) {
             img.classList.add("medias");
-            div.setAttribute("class", "media-container-lightbox")
+            div.setAttribute("class", "media-container-lightbox");
             div.appendChild(img);
             div.appendChild(title);    
             
         } else if (listOfPhotos === document.querySelector(".list-photos")) {
             img.classList.add("photo");
-            img.setAttribute("tabindex", index + 3);
+            img.setAttribute("tabindex", 0);
             div.setAttribute("class", "media-container");
-            const description = document.createElement('div');
+            const description = document.createElement("div");
             description.appendChild(title);
             description.appendChild(likes); 
             description.classList.add("description");
@@ -72,16 +72,16 @@ class VideoMedia {
 
     render(listOfPhotos, index) {
         const videoUrl = `assets/photos/${this.data.video}`;
-        const div = document.createElement('div');
-        const video = document.createElement('video');
-        const title = document.createElement('p');
-        const likes = document.createElement('p');
+        const div = document.createElement("div");
+        const video = document.createElement("video");
+        const title = document.createElement("p");
+        const likes = document.createElement("p");
 
         video.setAttribute("src", videoUrl);
         video.setAttribute("aria-label", this.data.title);
         title.textContent = this.data.title;
 
-        likes.innerHTML = `<span class="hearts">${this.data.likes}</span>` + ' <i class="fa-solid fa-heart"></i>';
+        likes.innerHTML = `<span class="hearts">${this.data.likes}</span>` + ' <i class="fa-solid fa-heart" aria-label="likes" tabindex="0"></i>';
 
         if (listOfPhotos === document.getElementById("light-box")) {
             video.classList.add("medias");
@@ -92,9 +92,9 @@ class VideoMedia {
 
         } else if (listOfPhotos === document.querySelector(".list-photos")) {
             video.classList.add("video");
-            video.setAttribute("tabindex", index + 3);
+            video.setAttribute("tabindex", 0);
             div.setAttribute("class", "media-container")
-            const description = document.createElement('div');
+            const description = document.createElement("div");
             description.appendChild(title);
             description.appendChild(likes); 
             description.classList.add("description");
@@ -107,7 +107,7 @@ class VideoMedia {
             video.addEventListener("keydown", () => {
                 onKeyUp(event);
                 currentSlide(index);
-            })
+            });
         }
 
         listOfPhotos.appendChild(div);

@@ -3,25 +3,24 @@ let params = new URL(document.location).searchParams;
 let idPhotographer = parseInt(params.get("id"));
 let arrayMedia = [];
 let newArrayLikes = [];
-let newArrayDate = [];
-let f = 0;
+let newArrayDate = [];  
 
 async function getPhotographers() {
     // JSON datas are recovered thanks to the fetch method
     
     try {
-    const response = await fetch('data/photographers.json');
+    const response = await fetch("data/photographers.json");
     if (!response.ok) {
-        throw new Error('Erreur HTTP ' + response.status);
+        throw new Error("Erreur HTTP " + response.status);
     }
     data = await response.json();
   
     } catch (error) {
-    console.error('Erreur :', error);
+    console.error("Erreur :", error);
     }
 
     return ({
-        photographers: [...data.photographers]})
+        photographers: [...data.photographers]});
 
 } 
 

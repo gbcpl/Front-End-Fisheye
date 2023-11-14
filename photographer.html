@@ -13,19 +13,19 @@
   <body>
     <header>
       <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page" tabindex="1"/>
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page" />
       </a>
     </header>
     <main id="main" aria-hidden="false">
       <div class="photograph-header">
         <div class="photograph-presentation" aria-label="Présentation du photographe"></div>
-        <button class="contact_button" onclick="displayModal()" tabindex="2" aria-label="Contact me">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()" tabindex="0" aria-label="Contact me">Contactez-moi</button>
         <div class="photograph-img"></div>
       </div>
       <div class="filter" aria-labelledby="Order by">
         <div id="sort">
           <label for="select-menu" class="filter-title">Trier par</label>
-          <select id="select-menu" tabindex="3">
+          <select id="select-menu" tabindex="0">
             <option value="" disabled selected hidden>Choisissez une catégorie</option>
             <option id="likes" value="likes">Popularité</option>
             <option id="date" value="date">Date</option>
@@ -65,13 +65,13 @@
 				</form>
 			</div>
 		</div>
-    <div id="modal-light-box">
+    <div id="modal-light-box" role="dialog" aria-label="image closeup view">
       <div id="light-box-container">
-        <i class="fa-solid fa-chevron-left fa-2xl" role="link"></i>
+        <i class="fa-solid fa-chevron-left fa-2xl" role="button" aria-label="Previous image"></i>
         <div id="light-box"></div>
         <div id="right-container">
-          <i class="fa-solid fa-chevron-right fa-2xl" role="link"> </i>
-          <img id="close-lightbox" src="assets/icons/close.svg" onclick="closeLightBox()" alt="Fermer" aria-label="Fermer" tabindex="0" role="button" />
+          <i class="fa-solid fa-chevron-right fa-2xl" role="button" aria-label="Next image"> </i>
+          <img id="close-lightbox" src="assets/icons/close.svg" onclick="closeLightBox()" alt="Close dialog" tabindex="0" role="button" />
         </div>
       </div>
     </div>
