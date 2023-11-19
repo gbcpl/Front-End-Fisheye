@@ -4,6 +4,7 @@ function onKeyUp(e) {
     }
 }
 
+// eslint-disable-next-line no-unused-vars
 class MediaFactory {
     static createMedia(data) {
         if (data.image) {
@@ -32,7 +33,6 @@ class ImageMedia {
 
         title.textContent = this.data.title;
 
-        // likes.textContent = this.data.likes;
         likes.innerHTML = `<span class="hearts">${this.data.likes} </span>` + ' <i class="fa-solid fa-heart" aria-label="likes" tabindex="0"></i>';
 
         if (listOfPhotos === document.getElementById("light-box")) {

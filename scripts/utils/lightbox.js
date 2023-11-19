@@ -8,6 +8,7 @@ function keyboardEventListener(e) {
     }
 }
 
+// eslint-disable-next-line no-unused-vars
 function openLightBox() {
     let lightBox = document.getElementById("modal-light-box");
     document.getElementById("main").style.display = "none";
@@ -32,6 +33,7 @@ function closeLightBox() {
     document.removeEventListener("keydown", keyboardEventListener)
 }
 
+// eslint-disable-next-line no-unused-vars
 function currentSlide(current) {
     const images = document.querySelectorAll(".media-container-lightbox"); 
     console.log(current);

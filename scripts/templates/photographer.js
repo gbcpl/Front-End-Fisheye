@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 function photographerTemplate(data) {
     const { name, id, city, country, tagline, price, portrait, title } = data;
     const picture = `assets/photographers/${portrait}`;
@@ -10,7 +11,7 @@ function photographerTemplate(data) {
         const img = document.createElement( 'img' );
         img.setAttribute("class", "imgcover");
         img.setAttribute("src", picture);
-        img.setAttribute("alt", "");
+        img.setAttribute("alt", `Photo de profil de ${name}`);
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         const h3 = document.createElement( 'h3' );
@@ -39,7 +40,7 @@ function photographerTemplate(data) {
         const img = document.createElement( 'img' );
         img.setAttribute("class", "photograph-picture");
         img.setAttribute("src", picture);
-        img.setAttribute("alt", `Photo de profil de ${name}`);    
+        img.setAttribute("alt", `Photo de profil de ${findId.name}`);    
         const h1 = document.createElement('h1');
         h1.textContent = findId.name;
         const h3 = document.createElement( 'h3' );
