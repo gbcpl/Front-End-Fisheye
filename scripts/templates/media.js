@@ -29,7 +29,7 @@ class ImageMedia {
 
         img.setAttribute("src", photo);
         img.setAttribute("alt", this.data.title);
-        img.setAttribute("role", "button");
+        img.setAttribute("aria-label", this.data.title);
 
         title.textContent = this.data.title;
 
